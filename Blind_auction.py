@@ -38,14 +38,14 @@ while another_bidder == 'y':
     print(logo)
     name = input("What is your name?: ")
     price = int(input("What's your bid: $"))
-    while price in bidder.values():
+    while price in bidder.values(): # Allows us to avoid duplicates. If the input isn't unique, the user must enter another value. 
         print(f"Your bid is not unique. Try something else!")
         price = int(input("What's your bid: $"))
-    bidder[name] = price
+    bidder[name] = price # Apply the entry to the dictionary
     another_bidder = input("Is there another bidder? (y/n): ")
 for name in bidder:
-    price = bidder[name]
-    if price > highest_bid:
-        highest_bid = price
-        winner = name
+    price = bidder[name] #Get the value for each key in the dictionary
+    if price > highest_bid: 
+        highest_bid = price #If the next key value is higher than the previosly assigned to the highest bid, update the latter. 
+        winner = name # in case the update due to higher bid value happens, the name will be recorded in "winner" variable.
 print(f'The winner of the auction is {winner} with the bid of ${bidder[winner]}')
